@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth.rivision.model.JwtRequest;
 import com.auth.rivision.model.JwtnResponse;
 import com.auth.rivision.model.User;
 import com.auth.rivision.serives.impl.UserServicesImpl;
@@ -22,10 +23,8 @@ public class UserController {
 	private UserServicesImpl services;
 
 	@PostMapping("/token")
-	public JwtnResponse generateToken(@RequestParam String username, @RequestParam String password) throws Exception {
-
-		String token = services.generateToken(username, password);
-
+	public JwtnResponse generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
+		String token = services.generateToken(jwtRequest.getUserName(),jwtRequest.getPassword());
 		return new JwtnResponse(token);
 	}
 

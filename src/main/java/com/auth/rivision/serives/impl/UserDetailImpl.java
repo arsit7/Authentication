@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.yaml.snakeyaml.emitter.Emitable;
 
 import com.auth.rivision.model.User;
 
